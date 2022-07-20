@@ -1,0 +1,25 @@
+{
+  "name": "dependency-ready",
+  "version": "1.0.0",
+  "description": "Wait for global objects to be ready for use.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stevenslack/dependency-ready.git"
+  },
+  "keywords": [
+    "dependency-ready",
+    "global",
+    "objects",
+    "async"
+  ],
+  "author": "Steven Slack",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stevenslack/dependency-ready/issues"
+  },
+  "homepage": "https://github.com/stevenslack/dependency-ready#readme"
+}
