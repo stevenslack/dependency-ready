@@ -60,6 +60,6 @@ describe('Test DependencyReady methods', () => {
   });
 
   test('the dependencyReady promise resolves undefined', async () => {
-    await expect(depReady.waitForDependency()).resolves.toBeUndefined();
+    await expect(depReady.waitForDependency()).resolves.toBeTruthy();
   });
 });

@@ -2,7 +2,6 @@
   "name": "dependency-ready",
   "version": "1.0.0",
   "description": "Wait for global objects to be ready for use.",
-  "main": "index.js",
   "scripts": {
     "test": "jest",
     "build": "tsc"
@@ -23,6 +22,7 @@
     "url": "https://github.com/stevenslack/dependency-ready/issues"
   },
   "homepage": "https://github.com/stevenslack/dependency-ready#readme",
+  "main": "./src/index.js",
   "devDependencies": {
     "@types/jest": "^28.1.6",
     "@typescript-eslint/eslint-plugin": "^5.32.0",

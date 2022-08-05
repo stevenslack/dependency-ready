@@ -9,11 +9,13 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "outDir": "./",
     "noImplicitAny": true,
     "skipLibCheck": true
   },
   "include": [
-    "index.ts"
+    "src/index.ts",
+    "example/example-script.ts"
   ],
   "exclude": [
     "node_modules"
