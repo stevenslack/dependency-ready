@@ -7,7 +7,7 @@
  */
 export default class DependencyReady {
     property;
-    timeout = 30000;
+    timeout;
     constructor(property, timeout = 30000) {
         this.property = property;
         this.timeout = timeout;
@@ -39,7 +39,8 @@ export default class DependencyReady {
         // Runs until the timeout has past and property is ready.
         while (!this.hasDependency()) {
             try {
-                // The reason a Promise.all is not used is that it will significantly reduce performance.
+                // Promise.all significantly reduces performance as it must process
+                // all of the promises added to an array. This is why a Promise await is used.
                 // eslint-disable-next-line no-await-in-loop
                 await new Promise((resolve, reject) => {
                     if (time < Date.now()) {
@@ -52,7 +53,6 @@ export default class DependencyReady {
                 });
             }
             catch (e) {
-                // Break the loop and display a console error.
                 // eslint-disable-next-line no-console
                 console.log(e);
                 break;
