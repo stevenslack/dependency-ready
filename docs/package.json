@@ -1,0 +1,14 @@
+{
+  "name": "dependency-ready-example",
+  "version": "1.0.0",
+  "description": "Github Page for showing how dependency ready works.",
+  "main": "example-script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dependency-ready": "^1.0.0"
+  }
+}

@@ -1,6 +1,6 @@
 // Import our module.
 // eslint-disable-next-line import/extensions
-import DependencyReady from '../../dependency-ready/src/index.js';
+import DependencyReady from 'dependency-ready';
 
 const fireButton = document.querySelector('.fire-depready');
 const resetButton = document.querySelector('.reset-test');
