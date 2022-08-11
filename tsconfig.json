@@ -15,7 +15,7 @@
   },
   "include": [
     "src/index.ts",
-    "example/example-script.ts"
+    "docs/example-script.ts"
   ],
   "exclude": [
     "node_modules"
