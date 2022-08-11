@@ -1,0 +1,12 @@
+docs/_config.yml
+docs/example-script.js
+docs/example-script.ts
+docs/index.html
+
+.editorconfig
+.eslintrc.json
+jest.config.ts
+
+tsconfig.json
+
+src/index.test.ts
