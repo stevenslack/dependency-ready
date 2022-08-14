@@ -22,6 +22,21 @@ npm install dependency-ready
 import DependencyReady from 'dependency-ready';
 ```
 
+### The DependencyReady class properties and methods:
+
+The DependencyReady class accepts the following parameters which define the class properties:
+| Parameters   | type              | default | description |
+|:-------------|:------------------|:--------|:------------|
+| property     | `string`          |         | (**Required**) The name of the property to validate its definition on the global object. |
+| timeout      | `number`          | `30000` | Time in milliseconds to wait for the property to be defined on the global object. Default is 30 seconds or 30000 milliseconds. |
+
+The `DependencyReady` class has the following methods available:
+| Methods | description |
+|:--------|:------------|
+| `hasDependency()` | Function to determine whether the property is defined on the global object. |
+| `call(callback: Function)` | A method to call a function when the property has been defined on the global object. |
+| `waitForDependency()` | An method which will wait for the property to be defined on the global object and return a `Promise`. |
+
 ### Examples
 
 Below is a simple example using `dependency-ready` to wait for a global object property in your project. Let's say that you are waiting for a third party to define the `foo` property on the global object. Once that property is defined you will want to fire your custom script which may use some of the data from `foo`. 
@@ -38,16 +53,3 @@ const depReady = new DependencyReady('foo');
 // Call the callbackFunction only when globalThis.foo is defined.
 depReady.call(callbackFunction);
 ```
-
-The DependencyReady class accepts the following parameters:
-| Parameters   | type              | default | description
-|:-------------|:------------------|:--------|:------------|
-| property     | `string`          |         | (**Required**) The name of the property to validate its definition on the global object.
-| timeout      | `number`          | `30000` | Time in milliseconds to wait for the property to be defined on the global object. Default is 30 seconds or 30000 milliseconds.
-
-The `DependencyReady` class has the following methods available:
-| Methods | description |
-|:--------|:------------|
-| `hasDependency()` | Function to determine whether the property is defined on the global object.
-| `call(callback: Function)` | A method to call a function when the property has been defined on the global object.
-| `waitForDependency()` | An method which will wait for the property to be defined on the global object and return a `Promise`.
