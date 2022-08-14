@@ -1,11 +1,4 @@
-docs/_config.yml
-docs/node_modules
-docs/example-script.js
-docs/example-script.ts
-docs/index.html
-docs/package.json
-docs/package-lock.json
-
+docs
 
 .editorconfig
 .eslintrc.json
