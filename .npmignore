@@ -6,4 +6,4 @@ jest.config.ts
 
 tsconfig.json
 
-src/index.test.ts
+index.test.ts
