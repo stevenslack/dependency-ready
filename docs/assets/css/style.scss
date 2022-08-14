@@ -1,0 +1,18 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+#foo-wait,
+#foo-ready,
+#foo-not-ready,
+.reset-test {
+    display: none;
+}
+
+#foo-wait.show,
+#foo-ready.show,
+#foo-not-ready.show,
+.reset-test.show {
+    display: block;
+}
