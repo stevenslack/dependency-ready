@@ -101,12 +101,13 @@ if (fireButton) {
         const depReady = new DependencyReady('foo', Number(timeoutValue));
         depReady.waitForDependency().then((isReady) => {
             if (isReady) {
-                ready();
+                // ready();
             }
             else {
                 notReady();
             }
         });
+        depReady.call(ready);
     });
 }
 resetButton?.addEventListener('click', () => {

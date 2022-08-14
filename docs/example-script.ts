@@ -120,11 +120,13 @@ if (fireButton) {
 
     depReady.waitForDependency().then((isReady) => {
       if (isReady) {
-        ready();
+        // ready();
       } else {
         notReady();
       }
     });
+
+    depReady.call(ready);
   });
 }
 

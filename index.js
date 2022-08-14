@@ -16,8 +16,8 @@ export default class DependencyReady {
      * Determine if the dependency object is loaded and set in the global object.
      */
     hasDependency() {
-        return typeof window !== 'undefined'
-            ? Object.hasOwn(window, this.property) : false;
+        return typeof globalThis !== 'undefined'
+            ? Object.hasOwn(globalThis, this.property) : false;
     }
     /**
      * Call a callback function when the property has been set in the global object.
@@ -47,7 +47,7 @@ export default class DependencyReady {
                         // Reject the promise if the timeout limit is reached.
                         reject(
                         // eslint-disable-next-line max-len
-                        new Error(`Timeout error. "window.${this.property}" is undefined`));
+                        new Error(`Timeout error. "globalThis.${this.property}" is undefined`));
                     }
                     setTimeout(resolve, 100);
                 });
