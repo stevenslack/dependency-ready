@@ -28,22 +28,23 @@
     <main id="content" class="main-content" role="main">
       {{ content }}
 
-      <h3>Playground</h3>
-      <p>In the section below we are assuming that a third-party is adding a property of **"foo"** to the global object. Below is a playground for testing how dependency-ready works by defining foo on the global object at a certain time. You can set the time at which to define the property and for how long to wait for the property using dependency-ready.</p>
       <div class="playground">
-        <label for="timeout" class="input-label">
-          Enter a wait timeout in milliseconds:
-          <input type="number" id="timeout" class="input-field" name="timeout" min="1000" max="30000" size="20" value="5000">
-          <span class="input-desc">Enter a max timeout in milliseconds for dependency-ready to wait for <code class="language-plaintext highlighter-rouge">foo</code> to be set on the global object.</span>
-        </label>
+        <div class="input-wrapper">
+          <label for="timeout" class="input-label">
+            Enter a wait timeout in milliseconds:
+            <input type="number" id="timeout" class="input-field" name="timeout" min="1000" max="30000" size="20" value="5000">
+            <span class="input-desc">Enter a max timeout in milliseconds for dependency-ready to wait for <code class="language-plaintext highlighter-rouge">foo</code> to be set on the global object.</span>
+          </label>
 
-        <label for="settimeout" class="input-label">
-          Set a time (in milliseconds) for defining the foo property on the global object:
-          <input type="number" id="settimeout" class="input-field" name="settimeout" min="1000" max="30000" size="20" value=4000>
-          <span class="input-desc">Set a time for defining the property foo on the global window object.</span>
-        </label>
+          <label for="settimeout" class="input-label">
+            Set a time (in milliseconds) for defining the foo property on the global object:
+            <input type="number" id="settimeout" class="input-field" name="settimeout" min="1000" max="30000" size="20" value=4000>
+            <span class="input-desc">Set a time for defining the property foo on the global window object.</span>
+          </label>
 
-        <button class="fire-depready playground-btn">Wait for foo</button>
+          <button class="fire-depready playground-btn">Wait for foo</button>
+          <button class="reset-test playground-btn">reset</button>
+        </div>
 
         <div class="results">
           <div id="foo-wait" class="loader">
@@ -59,7 +60,6 @@
             <p class="result-title results-undefined">Foo is NOT ready! 😢</p>
             <p>Open the dev tools in the browser and enter <code class="language-plaintext highlighter-rouge">globalThis.foo</code> in the console to verify that foo is undefined.</p>
           </div>
-          <button class="reset-test playground-btn">reset</button>
         </div>
       </div>
       <footer class="site-footer">
