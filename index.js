@@ -1,9 +1,9 @@
 /**
  * Dependency Ready.
  *
- * @param property - The name of the property to validate for it's existence on the global object.
- * @param timeout - (Optional) Time in milliseconds to wait for the property to be added
- *                             to the global object. Default is 30 seconds or 30000 milliseconds.
+ * @param property - The name of the property to validate its definition on the global object.
+ * @param timeout - (Optional) Time in milliseconds to wait for the property to be defined
+ *                             on the global object. Default is 30 seconds or 30000 milliseconds.
  */
 export default class DependencyReady {
     property;
@@ -13,14 +13,14 @@ export default class DependencyReady {
         this.timeout = timeout;
     }
     /**
-     * Determine if the dependency object is loaded and set in the global object.
+     * A method to determine whether the property is defined on the global object.
      */
     hasDependency() {
         return typeof globalThis !== 'undefined'
             ? Object.hasOwn(globalThis, this.property) : false;
     }
     /**
-     * Call a callback function when the property has been set in the global object.
+     * A method to call a function when the property has been defined on the global object.
      *
      * @param callback - A callback function.
      */
@@ -32,7 +32,7 @@ export default class DependencyReady {
         });
     }
     /**
-     * Wait for the property to be added to the global object with an async method.
+     * An method which will wait for the property to be defined on the global object and return a Promise.
      */
     async waitForDependency() {
         const time = Date.now() + this.timeout;

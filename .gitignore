@@ -1,6 +1,6 @@
 node_modules
 
-_site
+docs/_site
 .sass-cache
 Gemfile.lock
 *.gem

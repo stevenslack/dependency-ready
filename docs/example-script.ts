@@ -75,6 +75,7 @@ class DependencyReady {
   }
 }
 
+// Get the playground page elements.
 const fireButton = document.querySelector('.fire-depready');
 const resetButton = document.querySelector('.reset-test');
 const notReadyNode = document.getElementById('foo-not-ready');
@@ -83,19 +84,29 @@ const waiting = document.getElementById('foo-wait');
 const timeoutEl = document.getElementById('timeout');
 const setTimeoutEl = document.getElementById('settimeout');
 
+/**
+ * Reset the playground to its defaults.
+ */
 function reset() {
   waiting?.classList.remove('show');
   readyNode?.classList.remove('show');
   notReadyNode?.classList.remove('show');
   resetButton?.classList.remove('show');
+  fireButton?.classList.remove('hide');
 }
 
+/**
+ * Display the ready message.
+ */
 function ready() {
   waiting?.classList.remove('show');
   readyNode?.classList.add('show');
   resetButton?.classList.add('show');
 }
 
+/**
+ * Display the not ready message.
+ */
 function notReady() {
   waiting?.classList.remove('show');
   notReadyNode?.classList.add('show');
@@ -110,31 +121,30 @@ if (fireButton) {
     const setTimeoutValue = setTimeoutEl?.value || 4000;
 
     waiting?.classList.add('show');
+    fireButton?.classList.add('hide');
 
     setTimeout(() => {
       // @ts-ignore
-      window.foo = 'I am foo!';
+      globalThis.foo = 'I am foo!';
     }, Number(setTimeoutValue));
 
     const depReady = new DependencyReady('foo', Number(timeoutValue));
 
     depReady.waitForDependency().then((isReady) => {
       if (isReady) {
-        // ready();
+        ready();
       } else {
         notReady();
       }
     });
-
-    depReady.call(ready);
   });
 }
 
 resetButton?.addEventListener('click', () => {
   // @ts-ignore
-  if (typeof window?.foo !== 'undfined') {
+  if (typeof globalThis?.foo !== 'undefined') {
     // @ts-ignore
-    delete window.foo;
+    delete globalThis.foo;
   }
 
   reset();

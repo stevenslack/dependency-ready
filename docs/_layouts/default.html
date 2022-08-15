@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
 
 {% seo %}
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -30,26 +28,40 @@
     <main id="content" class="main-content" role="main">
       {{ content }}
 
-        <label for="timeout">Enter a timeout in milliseconds to wait for the window property:</label>
-        <input type="number" id="timeout" name="timeout" min="1000" max="30000" size="20" value="5000">
-        <label for="settimeout">Enter a timeout for setting the property foo on the global window object.</label>
-        <input type="number" id="settimeout" name="settimeout" min="1000" max="30000" size="20" value=4000>
+      <h3>Playground</h3>
+      <p>In the section below we are assuming that a third-party is adding a property of **"foo"** to the global object. Below is a playground for testing how dependency-ready works by defining foo on the global object at a certain time. You can set the time at which to define the property and for how long to wait for the property using dependency-ready.</p>
+      <div class="playground">
+        <label for="timeout" class="input-label">
+          Enter a wait timeout in milliseconds:
+          <input type="number" id="timeout" class="input-field" name="timeout" min="1000" max="30000" size="20" value="5000">
+          <span class="input-desc">Enter a max timeout in milliseconds for dependency-ready to wait for <code class="language-plaintext highlighter-rouge">foo</code> to be set on the global object.</span>
+        </label>
 
-        <button class="fire-depready">fire</button>
+        <label for="settimeout" class="input-label">
+          Set a time (in milliseconds) for defining the foo property on the global object:
+          <input type="number" id="settimeout" class="input-field" name="settimeout" min="1000" max="30000" size="20" value=4000>
+          <span class="input-desc">Set a time for defining the property foo on the global window object.</span>
+        </label>
 
-        <div id="foo-wait">
+        <button class="fire-depready playground-btn">Wait for foo</button>
+
+        <div class="results">
+          <div id="foo-wait" class="loader">
             <p>Waiting for window.foo ...</p>
-        </div>
+          </div>
 
-        <div id="foo-ready">
-            <p>Foo is ready!</p>
-        </div>
+          <div id="foo-ready">
+            <p class="result-title">Foo is ready! 🍕</p>
+            <p>Open the dev tools in the browser and enter <code class="language-plaintext highlighter-rouge">globalThis.foo</code> in the console to verify that foo is defined.</p>
+          </div>
 
-        <div id="foo-not-ready">
-            <p>Foo is NOT ready!</p>
+          <div id="foo-not-ready">
+            <p class="result-title results-undefined">Foo is NOT ready! 😢</p>
+            <p>Open the dev tools in the browser and enter <code class="language-plaintext highlighter-rouge">globalThis.foo</code> in the console to verify that foo is undefined.</p>
+          </div>
+          <button class="reset-test playground-btn">reset</button>
         </div>
-        <button class="reset-test">reset</button>
-
+      </div>
       <footer class="site-footer">
         {% if site.github.is_project_page %}
           <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
